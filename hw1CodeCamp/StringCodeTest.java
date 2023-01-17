@@ -10,12 +10,16 @@ public class StringCodeTest extends TestCase {
 	//
 	public void testBlowup1() {
 		// basic cases
+		assertEquals("attttxzzz", StringCode.blowup("a3tx2z"));
 		assertEquals("xxaaaabb", StringCode.blowup("xx3abb"));
 		assertEquals("xxxZZZZ", StringCode.blowup("2x3Z"));
 	}
 	
 	public void testBlowup2() {
 		// things with digits
+		
+//		two consecutive digit
+		assertEquals("2xxx", StringCode.blowup("12x"));
 		
 		// digit at end
 		assertEquals("axxx", StringCode.blowup("a2x3"));
@@ -60,7 +64,36 @@ public class StringCodeTest extends TestCase {
 		assertEquals(2, StringCode.maxRun("112233"));
 		assertEquals(3, StringCode.maxRun("1112233"));
 	}
+	
+	public void testRun4() {
+		// tests with special chars
+		assertEquals(2, StringCode.maxRun("--&&!@#123"));
+		assertEquals(2, StringCode.maxRun("**"));
+		assertEquals(2, StringCode.maxRun("  "));
+	}
 
 	// Need test cases for stringIntersect
+	
+	public void testStringIntersect1() {
+//		Basic cases
+		assertEquals(true, StringCode.stringIntersect("abbcc", "bbcca", 2));
+		assertEquals(true, StringCode.stringIntersect("abccc", "bbcca", 2));
+		assertEquals(false, StringCode.stringIntersect("abccc", "bbcda", 3));
+	}
+	
+	public void testStringIntersect2() {
+//		Number cases
+		assertEquals(true, StringCode.stringIntersect("11223", "22331", 2));
+		assertEquals(false, StringCode.stringIntersect("1123ab", "221cd", 2));
+		assertEquals(true, StringCode.stringIntersect("ab11123", "22111cd", 3));
+		assertEquals(false, StringCode.stringIntersect("ab11123", "221111cd", 4));
+		assertEquals(false, StringCode.stringIntersect("", "", 1));
+	}
+	
+	public void testStringIntersect3() {
+//		Special Char cases
+		assertEquals(true, StringCode.stringIntersect("--++!!", "==++@@", 2));
+		assertEquals(false, StringCode.stringIntersect("--++!!", "==++@@@", 3));
+	}
 	
 }
