@@ -21,6 +21,33 @@ public class TetrisGridTest extends TestCase {
 		TetrisGrid tetris = new TetrisGrid(before);
 		tetris.clearRows();
 
+//		assertTrue( Arrays.deepEquals(after, tetris.getGrid()) );
+		
+		before = new boolean[][]
+			{	
+				{false, false, false},
+				{false, false, false},
+				{true, false, false},
+				{false, true, true},
+				{true, true, true},
+				{true, true, false},
+				{true, true, true}
+			};
+			
+		after = new boolean[][]
+			{	
+			{false, false, false},
+			{false, false, false},
+			{false, false, false},
+			{false, false, false},
+			{true, false, false},
+			{false, true, true},
+			{true, true, false}
+			};
+			
+		tetris = new TetrisGrid(before);
+		tetris.clearRows();
+
 		assertTrue( Arrays.deepEquals(after, tetris.getGrid()) );
 	}
 	

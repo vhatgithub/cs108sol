@@ -28,5 +28,10 @@ public class AppearancesTest extends TestCase {
 		assertEquals(1, Appearances.sameCount(a, Arrays.asList(1, 3, 3, 1, 1)));
 	}
 	
-	// Add more tests
+	public void testSameCount3() {
+//		special char tests
+		List<String> a = stringToList("abb--cc**c");
+		List<String> b = stringToList("ccc++bb**a");
+		assertEquals(4, Appearances.sameCount(a, b));
+	}
 }
