@@ -33,7 +33,43 @@ public class CharGridTest extends TestCase {
 		assertEquals(1, cg.charArea('c'));
 	}
 	
+	public void testCharArea3() {
+		char[][] grid = new char[][] {
+			{'a', 'b', 'c', 'd'},
+			{'a', ' ', 'c', 'b'},
+			{'x', 'b', 'c', 'a'}
+		};
+		
+		CharGrid cg = new CharGrid(grid);
+		
+		assertEquals(12, cg.charArea('a'));
+		assertEquals(9, cg.charArea('b'));
+		assertEquals(3, cg.charArea('c'));
+		assertEquals(1, cg.charArea('d'));
+		assertEquals(1, cg.charArea('x'));
+		assertEquals(0, cg.charArea('e'));
+	}
 	
+	public void testCountPlus1() {
+		char[][] grid = new char[][] {
+			{' ', ' ', 'p', ' ', ' ', ' ', ' ', ' ', ' '},
+			{' ', ' ', 'p', ' ', ' ', ' ', ' ', 'x', ' '},
+			{'p', 'p', 'p', 'p', 'p', ' ', 'x', 'x', 'x'},
+			{' ', ' ', 'p', ' ', ' ', 'y', ' ', 'x', ' '},
+			{' ', ' ', 'p', ' ', 'y', 'y', 'y', ' ', ' '},
+			{'z', 'z', 'z', 'z', 'z', 'y', 'z', 'z', 'z'},
+			{' ', ' ', 'x', 'x', ' ', 'y', ' ', ' ', ' '}
+		};
+		
+		CharGrid cg = new CharGrid(grid);
+		assertEquals(2, cg.countPlus());
+		
+		grid[2][2] = 'x';
+		grid[2][7] = 'p';
+		
+		cg = new CharGrid(grid);
+		assertEquals(0, cg.countPlus());
+	}
 	
 	
 }
