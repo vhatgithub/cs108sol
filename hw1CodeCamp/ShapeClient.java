@@ -76,9 +76,9 @@ public class ShapeClient {
 		System.out.println("a crosses c:" + shapeA.crossesShape(shapeC));
 		System.out.println("a crosses d:" + shapeA.crossesShape(shapeD));
 		
-//		System.out.println("a encircles b:" + shapeA.encirclesShape(shapeB));
-//		System.out.println("a encircles c:" + shapeA.encirclesShape(shapeC));
-//		System.out.println("a encircles d:" + shapeA.encirclesShape(shapeD));
+		System.out.println("a encircles b:" + shapeA.encirclesShape(shapeB));
+		System.out.println("a encircles c:" + shapeA.encirclesShape(shapeC));
+		System.out.println("a encircles d:" + shapeA.encirclesShape(shapeD));
 	}
 
 }

@@ -103,6 +103,7 @@ public class Shape {
 		double intersectPointX = 0.0;
 		double intersectPointY = 0.0;
 		
+//		Formula for intercepts, intersection point are derived in rough note. refer if needed
 //		Infinity values cannot be compared using regular == & !=
 		if(Double.valueOf(line1Slope).compareTo(Double.POSITIVE_INFINITY) == 0 || Double.valueOf(line1Slope).compareTo(Double.NEGATIVE_INFINITY) == 0) {
 			line1Intercept = 0.0;
